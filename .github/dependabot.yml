@@ -1,0 +1,25 @@
+# Dependabot configuration for GitHub Actions updates
+# This file configures automated dependency updates for GitHub Actions used in workflows
+
+version: 2
+updates:
+  # Enable updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"  # Location of workflow files (.github/workflows)
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "UTC"
+    # Labels to apply to PRs created by dependabot
+    labels:
+      - "dependencies"
+      - "github-actions"
+    # Limit the number of open PRs
+    open-pull-requests-limit: 10
+    # Target branch for updates (current branch)
+    target-branch: "main"
+    # Allow updates for both version pins and commit SHAs
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
